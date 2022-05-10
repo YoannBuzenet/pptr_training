@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const { writeText } = require("./utils");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -9,6 +10,8 @@ const puppeteer = require("puppeteer");
   //await page.screenshot({ path: "example.png" });
 
   await page.waitForTimeout(5000);
+
+  await writeText("voilà du beau json");
 
   await browser.close();
 })();
